@@ -1801,9 +1801,6 @@
 		email: rt
 	} = window.rwbp, ot = new tt(
 	{
-		console.log(document)
-		console.log(document.body)
-		console.log(et)
 		target: document.body,
 		props:
 		{
