@@ -1625,7 +1625,7 @@
 		return {
 			c()
 			{
-				e = d("div"), n = d("div"), o = d("p"), i = m(t[1]), s = h(), a = d("form"), c = d("div"), c.innerHTML = '<input type="text" name="name" placeholder="Nome" class="svelte-11d2z92"/> \n\t\t\t<input type="email" name="email" placeholder="Email" class="svelte-11d2z92"/> \n\t\t\t<input type="text" name="phone" placeholder="Telefone" class="svelte-11d2z92"/>', u = h(), b = d("button"), y = m("Iniciar a conversa"), x = h(), w = d("a"), w.innerHTML = '',
+				e = d("div"), n = d("div"), o = d("p"), i = m(t[1]), s = h(), a = d("form"), c = d("div"), c.innerHTML = '<input type="text" name="name" placeholder="Nome" class="svelte-11d2z92"/> \n\t\t\t<input type="email" name="email" placeholder="Email" class="svelte-11d2z92"/> \n\t\t\t<input type="text" required name="phone" placeholder="Telefone" class="svelte-11d2z92"/>', u = h(), b = d("button"), y = m("Iniciar a conversa"), x = h(), w = d("a"), w.innerHTML = '',
 				 v(o, "class", "svelte-11d2z92"), v(n, "class", "header svelte-11d2z92 btnConv"), v(c, "class", "input-stack svelte-11d2z92"), v(b, "type", "submit"), b.disabled = t[2], v(b, "class", "svelte-11d2z92"), v(a, "class", "svelte-11d2z92"), v(w, "href", "https://materiais.resultadosdigitais.com.br/botao-de-whatsapp-gratuito?utm_source=whats-free&utm_medium=referral&utm_campaign=gerador-botao-whatsapp"), v(w, "target", "_blank"), v(w, "rel", "noopener noreferrer"), v(w, "class", "svelte-11d2z92"), v(e, "class", "box svelte-11d2z92"), v(e, "style", A = t[0] && "display: flex !important;")
 			},
 			m(r, p)
@@ -1764,7 +1764,9 @@
 				const e = {
 					...t,
 					url: window.location.toString(),
-					button_owner: r
+					button_owner: r,
+					utmc: getParameterByName('utmc') || '-',
+					utmo: getParameterByName('utmo') || 'site'
 				};
 				//return X.a.post("https://whatsfree-ezjajjdcda-ue.a.run.app/whats_conversion", e)
 				function getPhoneNumber(phoneNumberString) {
@@ -1778,7 +1780,11 @@
 			})(n).finally(() =>
 			{
 				// window.open("https://wa.me/" + i)
-				window.location.href = "https://bit.ly/gfarquitetura"
+				if (getParameterByName('utmo') == 'instagram') {
+					window.location.href = "https://bit.ly/gfarquiteturainsta"
+				} else {	
+					window.location.href = "https://bit.ly/gfarquitetura"
+				}
 			}), a()
 		}, r, i]
 	}
@@ -1811,4 +1817,15 @@
 	});
 	window.app = ot;
 	e.default = ot
+	function getParameterByName(name, url = window.location.href) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+    if (getParameterByName('utmo')) {
+      document.querySelector('.svelte-h9vrs5').click()
+  	}
 }]);
