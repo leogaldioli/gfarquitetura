@@ -1826,6 +1826,6 @@
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
     if (getParameterByName('utmo')) {
-      document.querySelector('.btnConv').click()
+      setTimeout(() => { document.querySelector('.btnConv').click()}, 1000)
   	}
 }]);
