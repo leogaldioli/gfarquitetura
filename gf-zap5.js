@@ -1766,7 +1766,8 @@
 					url: window.location.toString(),
 					button_owner: r,
 					utmc: getParameterByName('utmc') || '-',
-					utmo: getParameterByName('utmo') || 'site'
+					utmo: getParameterByName('utmo') || 'site',
+					gclid: getParameterByName('gclid') || ''
 				};
 				//return X.a.post("https://whatsfree-ezjajjdcda-ue.a.run.app/whats_conversion", e)
 				function getPhoneNumber(phoneNumberString) {
@@ -1774,7 +1775,7 @@
 				  return phoneNumberString.replace(/[^0-9+]|(\+)/g, '')
 				}
 
-				return X.a.post("https://restful-google-form.vercel.app/api/forms/1FAIpQLSd96LGWlHUaMSTZUPWVKcRClpkpG0WrwoiCvOGl9x3svtReIA", {"entry.1573236170":e.name,"entry.1917843711":getPhoneNumber(e.phone),"entry.1009198725":e.email,"entry.1125876256":'site', "entry.443540506": e.utmc, "entry.1838333466": e.utmo})
+				return X.a.post("https://restful-google-form.vercel.app/api/forms/1FAIpQLSd96LGWlHUaMSTZUPWVKcRClpkpG0WrwoiCvOGl9x3svtReIA", {"entry.1573236170":e.name,"entry.1917843711":getPhoneNumber(e.phone),"entry.1009198725":e.email,"entry.1125876256":'site', "entry.443540506": e.utmc, "entry.1838333466": e.utmo, "entry.92377155": e.gclid})
 				return console.log(e,t)
 				// TODO enviar post para planilha
 			})(n).finally(() =>
